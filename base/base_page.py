@@ -22,7 +22,7 @@ from project_logger import ProjectLogger
 
 class BasePage:
     _element: WebElement = None
-    _elements: list[WebElement] = None
+    _elements: list = None
     current_time = 0
     caps = {}
     logger: logging = None

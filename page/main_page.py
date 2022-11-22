@@ -30,7 +30,7 @@ class MainPage(App):
         self.find_and_click(MobileBy.XPATH, "//*[@text='发现']") \
             .find_and_click(MobileBy.XPATH, "//*[@text='小程序']") \
             .find_and_click(MobileBy.XPATH, "//*[@text='想家友邻']")
-        sleep(2)
+        sleep(5)
         self.switch_context('WEBVIEW_com.tencent.mm:appbrand0')
         self.switch_windows(':VISIBLE')
         return self

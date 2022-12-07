@@ -63,6 +63,7 @@ class App(BasePage):
         else:
             contexts = self.driver.contexts
             self.driver.switch_to.context(contexts[-1])
+        return self
 
     def swap(self, direction: str):
         """
@@ -81,4 +82,10 @@ class App(BasePage):
         elif direction == 'right':
             self.driver.swipe(start_x=size["width"] * 0.4, start_y=size["height"] * 0.5, end_x=size["width"] * 0.7,
                               end_y=size["height"] * 0.5, duration=200)
+
+    def swap_back(self):
+        size = self.driver.get_window_size()
+        self.driver.swipe(0, start_y=size["height"] * 0.5, end_x=size["width"] * 0.2,
+                          end_y=size["height"] * 0.5, duration=200)
+        return self
 

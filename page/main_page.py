@@ -36,5 +36,14 @@ class MainPage(App):
         return self
 
     def back_to_main_page(self):
-        self.back_to_main((By.CSS_SELECTOR, '.top_logo'))
+        self.switch_context('WEBVIEW_com.tencent.mm:appbrand0')
+        self.switch_windows(':VISIBLE')
+        try:
+            self.logger.info('返回小程序首页')
+            self.wait_for_visible((By.CSS_SELECTOR, '.top_logo'), 3)
+        except Exception as e:
+            # 先切换会原生app
+            self.switch_context('NATIVE_APP')
+            self.swap_back().back_to_main_page()
+            self.switch_context('WEBVIEW_com.tencent.mm:appbrand0')
         return self

@@ -114,7 +114,7 @@ class BasePage:
         self.find_element(by, locator)
         return self.send(key)
 
-    @handle_exception
+    # @handle_exception
     def find_elements(self, by, locator: str = None, index: int = None):
         """
         查找全部相关元素
